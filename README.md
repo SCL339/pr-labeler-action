@@ -196,6 +196,20 @@ cd pr-labeler-action
 python3 entrypoint.py
 ```
 
-## License 📄
+
+
+---
+
+## 🤝 Support
+
+If you find this project useful, consider supporting my work:
+
+- 💖 **Sponsor via WeChat/Alipay**: Email `530765059@qq.com` for details
+- ☁️ **Get $200 free credit** on [DigitalOcean](https://www.digitalocean.com/?refcode=scl339-01&utm_campaign=Referral_Invite&utm_medium=opensource&utm_source=SCL339)
+- 🚀 **Deploy your frontend** on [Vercel](https://vercel.com/?utm_source=scl339&utm_campaign=oss)
+- ⭐ **Star this repo** to help others discover it
+
+
+## 📄 License
 
 MIT — see [LICENSE](LICENSE) for details.
