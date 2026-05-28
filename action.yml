@@ -1,0 +1,42 @@
+name: 'PR Labeler Action'
+description: 'Automatically adds labels to pull requests based on the file paths changed'
+author: 'SCL339'
+
+branding:
+  icon: 'tag'
+  color: 'blue'
+
+inputs:
+  github-token:
+    description: 'GitHub token with write access to issues/labels'
+    required: false
+    default: ${{ github.token }}
+  config-path:
+    description: 'Path to the label configuration file in the repository'
+    required: false
+    default: '.github/pr-labeler.yml'
+  fail-on-missing-config:
+    description: 'Whether to fail if config file is missing'
+    required: false
+    default: 'false'
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        sparse-checkout: |
+          ${{ inputs.config-path }}
+
+    - name: Label PR based on changed files
+      shell: bash
+      env:
+        INPUT_TOKEN: ${{ inputs.github-token }}
+        INPUT_CONFIG_PATH: ${{ inputs.config-path }}
+        INPUT_FAIL_ON_MISSING: ${{ inputs.fail-on-missing-config }}
+        GITHUB_REPOSITORY: ${{ github.repository }}
+        GITHUB_EVENT_NAME: ${{ github.event_name }}
+        GITHUB_EVENT_PATH: ${{ github.event_path }}
+      run: |
+        python3 "${{ github.action_path }}/entrypoint.py"

@@ -1,0 +1,48 @@
+# .github/pr-labeler.yml
+# Maps file path globs to PR labels.
+# Any file matching a pattern will add the corresponding label.
+
+frontend:
+  - 'src/components/**'
+  - 'src/styles/**'
+  - 'src/pages/**'
+  - 'public/**'
+
+backend:
+  - 'src/api/**'
+  - 'src/models/**'
+  - 'src/services/**'
+  - 'src/middleware/**'
+
+documentation:
+  - 'docs/**'
+  - '*.md'
+  - '**/*.md'
+
+dependencies:
+  - 'package.json'
+  - 'package-lock.json'
+  - 'yarn.lock'
+  - 'pnpm-lock.yaml'
+  - 'requirements.txt'
+  - 'go.mod'
+  - 'go.sum'
+  - 'Cargo.toml'
+  - 'Gemfile'
+  - 'Gemfile.lock'
+
+testing:
+  - 'tests/**'
+  - '**/test_*'
+  - '**/*.test.*'
+  - '**/*.spec.*'
+  - '**/__tests__/**'
+
+configuration:
+  - '.github/**'
+  - '*.yml'
+  - '*.yaml'
+  - '*.json'
+  - '.env*'
+  - 'Dockerfile'
+  - 'docker-compose.yml'
